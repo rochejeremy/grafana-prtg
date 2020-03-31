@@ -120,6 +120,8 @@ function PRTGAPIService(alertSrv, backendSrv) {
           options.url,
           this.backendSrv.datasourceRequest(options).then(
             response => {
+              this.response = response;
+              this. $scope. $digest();
               if (!response.data) {
                 return Promise.reject({
                   message: "Response contained no data"
